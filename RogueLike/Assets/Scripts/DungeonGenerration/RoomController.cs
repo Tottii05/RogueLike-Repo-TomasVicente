@@ -8,11 +8,10 @@ public class RoomController : MonoBehaviour
     public static RoomController instance;
     string currentWorldName = "Basement";
     RoomInfo currentLoadRoomData;
-    Room currRoom;
+    public Room currRoom;
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
     public List<Room> loadedRooms = new List<Room>();
     bool isLoadingRoom = false;
-    bool spawnedBossRoom = false;
     bool updatedRooms = false;
 
     void Awake()
@@ -96,6 +95,12 @@ public class RoomController : MonoBehaviour
     public Room FindRoom(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y);
+    }
+
+    public string GetRandomRoomName()
+    {
+        string[] possibleRooms = new string[] { "Empty" };
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];
     }
 
     public void OnPlayerEnterRoom(Room room)
