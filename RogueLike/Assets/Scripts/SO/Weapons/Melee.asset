@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   weaponName: Sword
-  weaponSprite: {fileID: 21300000, guid: 5fed444461902964995d8a98c620436d, type: 3}
+  weaponSprite: {fileID: 21300000, guid: a036e96cab0a7a246a540531a1356abb, type: 3}
   trail: {fileID: 5008040342452473257, guid: 1e8990eeb82e1124392420294369a295, type: 3}
   damage: 50
-  attackCd: 15
+  attackCd: 1

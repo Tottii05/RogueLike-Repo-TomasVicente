@@ -163,5 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   rb: {fileID: 4305113065332116828}
+  speed: 15
   direction: {x: 0, y: 0}
   enemy: {fileID: 5163906042231023287, guid: 545bfa0b0f75ef24788ffd4e8aba3789, type: 3}

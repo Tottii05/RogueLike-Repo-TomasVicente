@@ -18,6 +18,7 @@ public class LaserBeaviour : MonoBehaviour
             {
                 weapon = playerAttack.weapon;
             }
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("BulletPlayer"), LayerMask.NameToLayer("Player"), true);
         }
     }
 
