@@ -6,7 +6,7 @@ public class EnemyTrailBehaviour : MonoBehaviour
 {
     public int damage;
     public Rigidbody2D rb;
-    private float speed = 50f;
+    public float speed = 15f;
     public Vector2 direction;
     public GameObject enemy;
 

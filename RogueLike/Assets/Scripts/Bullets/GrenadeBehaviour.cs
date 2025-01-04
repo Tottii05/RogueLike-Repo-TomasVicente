@@ -22,6 +22,7 @@ public class GrenadeBehaviour : MonoBehaviour
         startPoint = transform.position;
         direction = transform.right;
         endPoint = startPoint + direction * 6f;
+
         var player = GameObject.Find("WeaponPlace");
         if (player != null)
         {
@@ -33,6 +34,7 @@ public class GrenadeBehaviour : MonoBehaviour
         }
     }
 
+
     void Update()
     {
         ParabolicMovement();
@@ -40,6 +42,7 @@ public class GrenadeBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Grenade hit " + other.name);
         Explode();
     }
 
@@ -69,11 +72,13 @@ public class GrenadeBehaviour : MonoBehaviour
 
     void Explode()
     {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("BulletPlayer"), LayerMask.NameToLayer("Player"), true);
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 
         foreach (var hit in hitEnemies)
         {
-            if (!damagedEnemies.Contains(hit))
+            if (hit.gameObject.layer != LayerMask.NameToLayer("Player") && !damagedEnemies.Contains(hit))
             {
                 damagedEnemies.Add(hit);
 
@@ -85,7 +90,7 @@ public class GrenadeBehaviour : MonoBehaviour
                 if (rbEnemy != null)
                 {
                     Vector2 pushDirection = (rbEnemy.transform.position - transform.position).normalized;
-                    float pushForce = 10f; 
+                    float pushForce = 10f;
                     rbEnemy.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
                 }
             }
