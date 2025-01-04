@@ -5143,8 +5143,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 814766607}
   spawnerData:
-  - name: ChaseEnemy
+  - name: ChaseEnemySpawner
     spawnerData: {fileID: 11400000, guid: d8b0fa7c12630e649881a61bbf9ba2b3, type: 2}
+  - name: TurretEnemySpawner
+    spawnerData: {fileID: 11400000, guid: c6455c2594b879a4db94a448eb580910, type: 2}
+  Manager: {fileID: 0}
+  itemSpawned: 0
 --- !u!1 &1129008931
 GameObject:
   m_ObjectHideFlags: 0

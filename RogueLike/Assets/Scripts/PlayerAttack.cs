@@ -1,21 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     public Weapon weapon;
     public GameObject trail;
-    private bool canAttack = true;
+    private GameObject activeTrail;
+    public bool canAttack = true;
 
-    public void Start()
+    public void Awake()
     {
         trail = weapon.trail;
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
+        if (weapon.name == "Flamethrower")
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (activeTrail == null)
+                {
+                    activeTrail = Instantiate(trail, transform.position, transform.GetChild(0).rotation);
+                    activeTrail.transform.parent = transform;
+                }
+            }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                if (activeTrail != null)
+                {
+                    Destroy(activeTrail);
+                    activeTrail = null;
+                }
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
             Attack();
         }

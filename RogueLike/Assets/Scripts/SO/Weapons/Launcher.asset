@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305be97d93de4ad4ebf981065722585f, type: 3}
   m_Name: Launcher
   m_EditorClassIdentifier: 
-  weaponName: 
-  damage: 0
-  attackSpeed: 0
+  weaponName: GLauncher
+  weaponSprite: {fileID: 21300000, guid: 1c022e0f95359374e994875421748638, type: 3}
+  trail: {fileID: 3745734809568324301, guid: bb0b1e8ebb48db44bba4989943520c76, type: 3}
+  damage: 50
+  attackCd: 0.5

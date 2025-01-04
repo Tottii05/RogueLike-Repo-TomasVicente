@@ -126,9 +126,14 @@ public class Room : MonoBehaviour
         {
             RoomController.instance.OnPlayerEnterRoom(this);
             ChaseTarget[] chasers = GetComponentsInChildren<ChaseTarget>();
+            EnemyAttack[] shooters = GetComponentsInChildren<EnemyAttack>();
             foreach (ChaseTarget chaser in chasers)
             {
                 chaser.startChase = true;
+            }
+            foreach (EnemyAttack shooter in shooters)
+            {
+                shooter.canShoot = true;
             }
         }
     }

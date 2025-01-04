@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305be97d93de4ad4ebf981065722585f, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  weaponName: 
-  damage: 0
-  attackSpeed: 0
+  weaponName: Flamethrower
+  weaponSprite: {fileID: 21300000, guid: 66fb3f88e4fd3bf43994b676a5016e75, type: 3}
+  trail: {fileID: 9013583730132108777, guid: 88a6ff7e757922849b65b8ee81f8708f, type: 3}
+  damage: 30
+  attackCd: 0
