@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHp : MonoBehaviour, IDamageable
@@ -11,7 +10,13 @@ public class PlayerHp : MonoBehaviour, IDamageable
         Hp -= damage;
         if (Hp <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(DeathCoroutine());
         }
+    }
+
+    public IEnumerator DeathCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

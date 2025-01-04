@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 736891226430923264}
   - component: {fileID: 408783059886935514}
   - component: {fileID: -7118781589745727487}
+  - component: {fileID: -2330233607567049246}
   - component: {fileID: -2277908239322113739}
   - component: {fileID: 641893795874649596}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: TurretEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -100,6 +101,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
+--- !u!114 &-2330233607567049246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163906042231023287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e831e92e4228ec478063fba13b2f372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 9127209126183838341, guid: 4511c94cabd59a44784fce419cd1c449, type: 3}
+  attackCd: 2
+  shooterPrefab: {fileID: 5163906042231023287}
+  canShoot: 0
+  attackRadius: 3
 --- !u!61 &-2277908239322113739
 BoxCollider2D:
   m_ObjectHideFlags: 0

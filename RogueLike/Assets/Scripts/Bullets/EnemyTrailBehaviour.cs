@@ -13,7 +13,6 @@ public class EnemyTrailBehaviour : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        direction = transform.right;
     }
 
     void Update()
@@ -28,6 +27,11 @@ public class EnemyTrailBehaviour : MonoBehaviour
             damageable.TakeDamage(damage);
         }
         enemy.GetComponent<EnemyAttack>().Push(gameObject);
+    }
+
+    public void SetDirection(Vector3 targetPosition)
+    {
+        direction = (targetPosition - transform.position).normalized;
     }
 
     public void ConstantMovement()

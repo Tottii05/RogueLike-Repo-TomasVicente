@@ -1,51 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public int attackCd = 2;
-    public GameObject enemy;
+    public int attackCd = 3;
+    public GameObject shooterPrefab;
     private Stack<GameObject> stack;
     public bool canShoot = false;
-    public int attackRadius = 4;
+    public int attackRadius = 7;
+    private GameObject player;
+    private bool isShooting = false;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         stack = new Stack<GameObject>();
+
         for (int i = 0; i < 3; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, enemy.transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, shooterPrefab.transform.position, Quaternion.identity);
+            bullet.GetComponent<EnemyTrailBehaviour>().enemy = shooterPrefab;
             bullet.SetActive(false);
             stack.Push(bullet);
         }
-        StartCoroutine(Shoot());
     }
 
-    public void Update()
+    void Update()
     {
-        if (Vector2.Distance(transform.position, enemy.transform.position) < attackRadius)
+        if (canShoot && stack.Count > 0 && !isShooting && IsPlayerAlive())
         {
-            canShoot = true;
-        }
-        else
-        {
-            canShoot = false;
+            StartCoroutine(Shoot());
         }
     }
 
-    private IEnumerator Shoot()
+    IEnumerator Shoot()
     {
-        if (canShoot && stack.Count > 0)
-        {
-            GameObject bullet = Pop();
-            bullet.transform.position = enemy.transform.position;
-            bullet.SetActive(true);
-        }
+        isShooting = true;
+        GameObject bullet = Pop();
+
+        bullet.SetActive(true);
+
+        Vector3 targetPosition = player.transform.position;
+
+        bullet.transform.position = shooterPrefab.transform.position;
+        bullet.GetComponent<EnemyTrailBehaviour>().SetDirection(targetPosition);
+
         yield return new WaitForSeconds(attackCd);
-        yield return Shoot();
+        isShooting = false;
     }
 
     public void Push(GameObject bullet)
@@ -57,5 +60,21 @@ public class EnemyAttack : MonoBehaviour
     public GameObject Pop()
     {
         return stack.Pop();
+    }
+
+    private bool IsPlayerAlive()
+    {
+        if (player == null)
+        {
+            return false;
+        }
+
+        PlayerHp playerHealth = player.GetComponent<PlayerHp>();
+        if (playerHealth != null && playerHealth.Hp > 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

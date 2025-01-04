@@ -15,12 +15,12 @@ public class ChaseTarget : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.Find("Player");
     }
 
     void Update()
     {
-        if (startChase)
+        if (startChase && target != null && target.GetComponent<PlayerHp>().Hp > 0)
         {
             targetPosition = target.transform.position;
             Chase();
@@ -50,10 +50,6 @@ public class ChaseTarget : MonoBehaviour
             if (collider.CompareTag("Player"))
             {
                 collider.GetComponent<PlayerHp>().TakeDamage(explosionDamage);
-            }
-            else if (collider.GetComponent<IDamageable>() != null)
-            {
-                collider.GetComponent<IDamageable>().TakeDamage(explosionDamage);
             }
         }
         GetComponent<HPSystem>().TakeDamage(100);

@@ -40,8 +40,9 @@ public class LaserBeaviour : MonoBehaviour
     {
         while (hit.collider.TryGetComponent<IDamageable>(out var damageable))
         {
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1f);
             damageable.TakeDamage(weapon.damage);
+            Debug.Log("entity" + hit.collider.name + " took " + weapon.damage + " damage");
         }
     }
 }
