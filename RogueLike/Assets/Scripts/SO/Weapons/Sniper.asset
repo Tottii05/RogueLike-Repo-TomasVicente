@@ -17,3 +17,4 @@ MonoBehaviour:
   trail: {fileID: 1484599607851502527, guid: 2a6313c9a8838ba4fb5d008609c161a9, type: 3}
   damage: 100
   attackCd: 1
+  price: 20

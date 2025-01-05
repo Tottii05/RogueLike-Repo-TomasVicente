@@ -9,4 +9,5 @@ public class Weapon : ScriptableObject
     public GameObject trail;
     public int damage;
     public float attackCd;
+    public int price;
 }

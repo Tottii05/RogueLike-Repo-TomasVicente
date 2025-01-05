@@ -12,6 +12,7 @@ public class HPSystem : MonoBehaviour, IDamageable
         if (Hp <= 0)
         {
             OnEnemyKilled?.Invoke();
+            GetComponent<IDroppeable>().Drop();
             Destroy(gameObject);
         }
     }
