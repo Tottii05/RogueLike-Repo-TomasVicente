@@ -9,8 +9,12 @@ public class LoadWeaponSprite : MonoBehaviour
 
     void Start()
     {
-        weapon = GameObject.Find("WeaponPlace").GetComponent<PlayerAttack>().weapon;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        weapon = GameObject.Find("WeaponPlace").GetComponent<PlayerAttack>().weapon;
         spriteRenderer.sprite = weapon.weaponSprite;
     }
 }

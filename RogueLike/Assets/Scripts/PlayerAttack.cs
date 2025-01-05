@@ -9,13 +9,9 @@ public class PlayerAttack : MonoBehaviour
     private GameObject activeTrail;
     public bool canAttack = true;
 
-    public void Awake()
-    {
-        trail = weapon.trail;
-    }
-
     public void Update()
     {
+        trail = weapon.trail;
         if (weapon.name == "Flamethrower")
         {
             if (Input.GetKey(KeyCode.Space))

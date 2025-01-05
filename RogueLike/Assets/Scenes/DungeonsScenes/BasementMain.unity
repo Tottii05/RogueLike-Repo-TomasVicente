@@ -1107,7 +1107,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1229276551
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!1 &1411854635
 GameObject:
@@ -1520,7 +1520,7 @@ PrefabInstance:
     - target: {fileID: 208746641244195044, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 11400000, guid: 47b0add375ed62f4ea9a90fca7bacb37, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e415076998686c4c80469ce6cc9218e, type: 2}
     - target: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: m_Sprite
       value: 
