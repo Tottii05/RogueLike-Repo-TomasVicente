@@ -606,7 +606,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1229276551
   m_SortingLayer: 1
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5f58a39af07d5fe4394b6cceea42a79a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1187,7 +1187,7 @@ PrefabInstance:
     - target: {fileID: 208746641244195044, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 11400000, guid: f69bda2de479c4b4bbaa4ba6d74d6d5b, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e415076998686c4c80469ce6cc9218e, type: 2}
     - target: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: m_Sprite
       value: 
