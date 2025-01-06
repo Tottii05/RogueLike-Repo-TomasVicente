@@ -26,7 +26,10 @@ public class EnemyTrailBehaviour : MonoBehaviour
         {
             damageable.TakeDamage(damage);
         }
-        enemy.GetComponent<EnemyAttack>().Push(gameObject);
+        if (enemy != null)
+        {
+            enemy.GetComponent<EnemyAttack>().Push(gameObject);
+        }
     }
 
     public void SetDirection(Vector3 targetPosition)
