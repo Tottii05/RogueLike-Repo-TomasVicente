@@ -1109,6 +1109,11 @@ Canvas:
   m_SortingLayerID: -1229276551
   m_SortingOrder: 5
   m_TargetDisplay: 0
+--- !u!1 &1396292273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9102034212096747419, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+  m_PrefabInstance: {fileID: 435545425512027350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1411854635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 100
+  animator: {fileID: 1581093758}
+  spriteRenderer: {fileID: 1581093780}
+  weaponHolder: {fileID: 1396292273}
 --- !u!114 &1581093776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,6 +1253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinCount: 0
+--- !u!212 &1581093780 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+  m_PrefabInstance: {fileID: 435545425512027350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813967882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  player: {fileID: 0}
 --- !u!212 &1813967885
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1509,6 +1523,11 @@ Transform:
   - {fileID: 771899251}
   m_Father: {fileID: 28437705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2089317689 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5556492727991734237, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+  m_PrefabInstance: {fileID: 435545425512027350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &435545425512027350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1517,6 +1536,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 86983884431029866, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+      propertyPath: weaponSprite
+      value: 
+      objectReference: {fileID: 2089317689}
     - target: {fileID: 208746641244195044, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: weapon
       value: 
@@ -1525,6 +1548,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1679378774, guid: 502032a1d1de8e54ca870c3cd6453f09, type: 3}
+    - target: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3817403258006084694, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: weapon
       value: 
@@ -1537,6 +1572,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4824370911955794614, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1581093757}
     - target: {fileID: 7595077586588131862, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
       propertyPath: m_Size.x
       value: 0.80507493
