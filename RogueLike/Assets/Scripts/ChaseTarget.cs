@@ -24,6 +24,7 @@ public class ChaseTarget : MonoBehaviour
         {
             targetPosition = target.transform.position;
             Chase();
+            FlipSprite();
         }
     }
 
@@ -53,5 +54,17 @@ public class ChaseTarget : MonoBehaviour
             }
         }
         GetComponent<HPSystem>().TakeDamage(100);
+    }
+
+    public void FlipSprite()
+    {
+        if (targetPosition.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-0.15f, 0.15f, 0.15f);
+        }
     }
 }
