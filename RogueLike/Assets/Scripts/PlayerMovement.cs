@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour, InputSystem.IPlayerActions
     private Rigidbody2D rb;
     private Animator animator;
     public GameObject weaponPosition;
+    public SpriteRenderer weaponSprite;
+
     private void Awake()
     {
         inputs = new InputSystem();
@@ -62,26 +64,35 @@ public class PlayerMovement : MonoBehaviour, InputSystem.IPlayerActions
     {
         rb.velocity = direction * speed;
     }
+
     public void UpdateWeaponDirection()
     {
         Dictionary<Vector2, (Vector3 position, Vector3 rotation)> weaponDirections = new Dictionary<Vector2, (Vector3, Vector3)>()
-    {
-        { Vector2.left,      (new Vector3(-0.62f, 0, 0),      new Vector3(0, -180, 0)) },
-        { Vector2.right,     (new Vector3(0.62f, 0, 0),       new Vector3(0, 0, 0)) },
-        { Vector2.down,      (new Vector3(0, -0.62f, 0),      new Vector3(0, 0, -90)) },
-        { Vector2.up,        (new Vector3(0, 0.62f, 0),       new Vector3(0, 0, 90)) },
-        { new Vector2(-1, -1), (new Vector3(-0.62f, -0.62f, 0), new Vector3(180, 0, 135)) },
-        { new Vector2(-1, 1),  (new Vector3(-0.62f, 0.62f, 0),  new Vector3(180, 0, 235)) },
-        { new Vector2(1, -1),  (new Vector3(0.62f, -0.62f, 0),  new Vector3(0, 0, -45)) },
-        { new Vector2(1, 1),   (new Vector3(0.62f, 0.62f, 0),   new Vector3(0, 0, 45)) }
-    };
+        {
+            { Vector2.left,      (new Vector3(-0.62f, 0, 0),      new Vector3(0, -180, 0)) },
+            { Vector2.right,     (new Vector3(0.62f, 0, 0),       new Vector3(0, 0, 0)) },
+            { Vector2.down,      (new Vector3(0, -0.62f, 0),      new Vector3(0, 0, -90)) },
+            { Vector2.up,        (new Vector3(0, 0.62f, 0),       new Vector3(0, 0, 90)) },
+            { new Vector2(-1, -1), (new Vector3(-0.62f, -0.62f, 0), new Vector3(180, 0, 135)) },
+            { new Vector2(-1, 1),  (new Vector3(-0.62f, 0.62f, 0),  new Vector3(180, 0, 235)) },
+            { new Vector2(1, -1),  (new Vector3(0.62f, -0.62f, 0),  new Vector3(0, 0, -45)) },
+            { new Vector2(1, 1),   (new Vector3(0.62f, 0.62f, 0),   new Vector3(0, 0, 45)) }
+        };
 
         Vector2 normalizedDirection = new Vector2(Mathf.Round(direction.x), Mathf.Round(direction.y));
         if (weaponDirections.TryGetValue(normalizedDirection, out var values))
         {
             weaponPosition.transform.localPosition = values.position;
             weaponPosition.transform.localRotation = Quaternion.Euler(values.rotation);
+
+            if (normalizedDirection == Vector2.up)
+            {
+                weaponSprite.sortingLayerName = "Details";
+            }
+            else
+            {
+                weaponSprite.sortingLayerName = "Characters";
+            }
         }
     }
-
 }

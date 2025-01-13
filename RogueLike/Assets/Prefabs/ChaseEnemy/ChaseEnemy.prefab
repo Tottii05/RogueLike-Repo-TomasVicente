@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 1003723997733768058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19634646, y: -0.75919306, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 914.41, y: 513.18, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4036538170168642090}
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: -1929195329
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8584906, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1313995369, guid: fc86758722e9db14d98ccd8a92d05229, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4822315991185180235, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
   speed: 2
-  stoppingDistance: 1
+  stoppingDistance: 1.5
   targetPosition: {x: 0, y: 0}
   startChase: 0
   animator: {fileID: 0}
@@ -171,18 +171,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.018876553, y: -0.20648646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 16, y: 16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.2164087, y: 7.642818}
   m_EdgeRadius: 0
 --- !u!50 &7885244538837400017
 Rigidbody2D:
@@ -342,8 +342,8 @@ Transform:
   m_GameObject: {fileID: 4012395020867714313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960.19, y: -539.93, z: 0}
-  m_LocalScale: {x: 0.67701554, y: 0.67701554, z: 0.67701554}
+  m_LocalPosition: {x: -960.19, y: -534.37, z: 0}
+  m_LocalScale: {x: 2.6882164, y: 2.6882164, z: 2.6882164}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2030275805331441917}
@@ -498,7 +498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4036538170168642090
 RectTransform:
   m_ObjectHideFlags: 0
