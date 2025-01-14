@@ -12,11 +12,13 @@ public class EnemyAttack : MonoBehaviour
     public int attackRadius = 7;
     private GameObject player;
     private bool isShooting = false;
+    public Animator animator;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         stack = new Stack<GameObject>();
+        animator = GetComponent<Animator>();
 
         for (int i = 0; i < 3; i++)
         {
@@ -37,6 +39,7 @@ public class EnemyAttack : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        animator.SetTrigger("Attack");
         isShooting = true;
         GameObject bullet = Pop();
 
