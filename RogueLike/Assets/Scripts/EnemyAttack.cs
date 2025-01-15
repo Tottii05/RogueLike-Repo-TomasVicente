@@ -31,6 +31,11 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
+        if (player != null)
+        {
+            FlipSpriteTowardsPlayer();
+        }
+
         if (canShoot && stack.Count > 0 && !isShooting && IsPlayerAlive())
         {
             StartCoroutine(Shoot());
@@ -79,5 +84,28 @@ public class EnemyAttack : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void FlipSprite()
+    {
+        Vector3 scale = shooterPrefab.transform.localScale;
+        scale.x *= -1;
+        shooterPrefab.transform.localScale = scale;
+    }
+
+    private void FlipSpriteTowardsPlayer()
+    {
+        if (player != null)
+        {
+            Vector3 direction = player.transform.position - shooterPrefab.transform.position;
+            if (direction.x > 0 && shooterPrefab.transform.localScale.x < 0)
+            {
+                FlipSprite();
+            }
+            else if (direction.x < 0 && shooterPrefab.transform.localScale.x > 0)
+            {
+                FlipSprite();
+            }
+        }
     }
 }

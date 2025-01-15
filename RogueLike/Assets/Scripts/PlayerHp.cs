@@ -8,18 +8,11 @@ public class PlayerHp : MonoBehaviour, IDamageable
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public GameObject weaponHolder;
+    public Rigidbody2D rb;
 
     public void Start()
     {
         animator = GetComponent<Animator>();
-    }
-    public void Update()
-    {
-        if (Hp <= 0)
-        {
-            GetComponent<PlayerMovement>().enabled = false;
-            animator.SetBool("Dead", true);
-        }
     }
     public void TakeDamage(int damage)
     {
@@ -34,7 +27,10 @@ public class PlayerHp : MonoBehaviour, IDamageable
 
     public IEnumerator DeathCoroutine()
     {
+        GetComponent<PlayerMovement>().enabled = false;
+        animator.SetBool("Dead", true);
         weaponHolder.SetActive(false);
+        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
     }
@@ -43,6 +39,5 @@ public class PlayerHp : MonoBehaviour, IDamageable
     {  
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
-
     }
 }
