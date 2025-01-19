@@ -8,4 +8,4 @@ Goblin slayer es un videojuego 2d con vista estilo top-down, con un estilo visua
 - En el apartado de la tienda, cuando el jugador este dentro del rango de acción y tenga el dinero suficiente, pulsando la tecla E comprará el arma a elección.
 
 ## UML
-![Roguelike UML](UML.png)
+![Roguelike UML](UML.PNG)
