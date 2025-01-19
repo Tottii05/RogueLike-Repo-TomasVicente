@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  weapon: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: dbe153797172e0b4d843eaa82a961b5c, type: 3}
+  audioManager: {fileID: 0}
 --- !u!95 &-8091919275275586855
 Animator:
   serializedVersion: 5

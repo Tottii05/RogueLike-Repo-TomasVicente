@@ -10,4 +10,5 @@ public class Weapon : ScriptableObject
     public int damage;
     public float attackCd;
     public int price;
+    public AudioClip attackSound;
 }

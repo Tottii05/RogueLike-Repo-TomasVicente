@@ -16,7 +16,6 @@ public class Room : MonoBehaviour
 
     public Door leftDoor, rightDoor, topDoor, bottomDoor;
     public List<Door> doors = new List<Door>();
-    private bool updatedDoors = false;
 
     private void Start()
     {
@@ -48,15 +47,6 @@ public class Room : MonoBehaviour
         }
 
         RoomController.instance.RegisterRoom(this);
-    }
-
-    void Update()
-    {
-        if (name.Contains("End") && !updatedDoors)
-        {
-            RemoveUnconnectedDoors();
-            updatedDoors = true;
-        } 
     }
 
     public void RemoveUnconnectedDoors()

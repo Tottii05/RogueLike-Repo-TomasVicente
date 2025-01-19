@@ -165,3 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f159db2b1f960bf43b6ace1ff6d75813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeCoinAudio: {fileID: 8300000, guid: 2d3e5bb429f8d2943afa0ae26fbad1e5, type: 3}
+  audioManager: {fileID: 0}

@@ -15,6 +15,8 @@ public class GrenadeBehaviour : MonoBehaviour
     public Sprite tempSprite;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    public AudioClip explosionSound;
+    public GameObject audioManager;
 
     void Start()
     {
@@ -22,6 +24,7 @@ public class GrenadeBehaviour : MonoBehaviour
         startPoint = transform.position;
         direction = transform.right;
         endPoint = startPoint + direction * 6f;
+        audioManager = GameObject.Find("AudioManager");
 
         var player = GameObject.Find("WeaponPlace");
         if (player != null)
@@ -42,7 +45,6 @@ public class GrenadeBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Grenade hit " + other.name);
         Explode();
     }
 
@@ -70,32 +72,40 @@ public class GrenadeBehaviour : MonoBehaviour
 
     private HashSet<Collider2D> damagedEnemies = new HashSet<Collider2D>();
 
+    private bool hasExploded = false;
+
     void Explode()
     {
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("BulletPlayer"), LayerMask.NameToLayer("Player"), true);
-
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-
-        foreach (var hit in hitEnemies)
+        if (!hasExploded)
         {
-            if (hit.gameObject.layer != LayerMask.NameToLayer("Player") && !damagedEnemies.Contains(hit))
-            {
-                damagedEnemies.Add(hit);
+            hasExploded = true;
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
 
-                if (hit.TryGetComponent<IDamageable>(out var damageable))
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("BulletPlayer"), LayerMask.NameToLayer("Player"), true);
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+
+            foreach (var hit in hitEnemies)
+            {
+                if (hit.gameObject.layer != LayerMask.NameToLayer("Player") && !damagedEnemies.Contains(hit))
                 {
-                    damageable.TakeDamage(weapon.damage);
-                }
-                var rbEnemy = hit.GetComponent<Rigidbody2D>();
-                if (rbEnemy != null)
-                {
-                    Vector2 pushDirection = (rbEnemy.transform.position - transform.position).normalized;
-                    float pushForce = 10f;
-                    rbEnemy.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+                    damagedEnemies.Add(hit);
+
+                    if (hit.TryGetComponent<IDamageable>(out var damageable))
+                    {
+                        damageable.TakeDamage(weapon.damage);
+                    }
+                    var rbEnemy = hit.GetComponent<Rigidbody2D>();
+                    if (rbEnemy != null)
+                    {
+                        Vector2 pushDirection = (rbEnemy.transform.position - transform.position).normalized;
+                        float pushForce = 10f;
+                        rbEnemy.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+                    }
                 }
             }
+            StartCoroutine(EplodeAnimCoroutine());
         }
-        StartCoroutine(EplodeAnimCoroutine());
     }
 
     public IEnumerator EplodeAnimCoroutine()
