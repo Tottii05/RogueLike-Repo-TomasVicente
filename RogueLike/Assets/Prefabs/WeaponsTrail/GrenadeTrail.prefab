@@ -182,6 +182,8 @@ MonoBehaviour:
   tempSprite: {fileID: 21300000, guid: 1ac44b7405e271540b3fd67e591e1e61, type: 3}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 9028103344324146314}
+  explosionSound: {fileID: 8300000, guid: 8ad7e632ffb1e1e4f88d1a65475a41f2, type: 3}
+  audioManager: {fileID: 0}
 --- !u!95 &9028103344324146314
 Animator:
   serializedVersion: 5

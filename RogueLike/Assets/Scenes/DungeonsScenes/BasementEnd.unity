@@ -4341,6 +4341,11 @@ MonoBehaviour:
   Height: 0
   X: 0
   Y: 0
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  doors: []
 --- !u!4 &1121952227
 Transform:
   m_ObjectHideFlags: 0

@@ -10,12 +10,15 @@ public class SellItem : MonoBehaviour
     public GameObject player;
     public GameObject weaponHolder;
     public TextMeshProUGUI priceText;
+    public GameObject audioManager;
+    public AudioClip sellAudio;
 
     void Start()
     {
         player = GameObject.Find("Player");
         weaponHolder = GameObject.Find("WeaponPlace");
         weapon = GetComponent<RandomWeaponLoader>().choosedWeapon;
+        audioManager = GameObject.Find("AudioManager");
     }
 
     void Update()
@@ -26,6 +29,7 @@ public class SellItem : MonoBehaviour
             {
                 player.GetComponent<MoneyManager>().coinCount -= weapon.price;
                 weaponHolder.GetComponent<PlayerAttack>().weapon = weapon;
+                audioManager.GetComponent<AudioManager>().PlaySFX(sellAudio);
                 Destroy(gameObject);
                 Destroy(priceText.gameObject);
             }

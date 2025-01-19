@@ -35,6 +35,4 @@ public class GridController : MonoBehaviour
         }
         GetComponentInParent<EnemyRoomSpawner>().InitialiseObjectSpawning();
     }
-
-
 }

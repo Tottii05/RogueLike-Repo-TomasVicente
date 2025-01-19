@@ -8,6 +8,14 @@ public class PlayerAttack : MonoBehaviour
     public GameObject trail;
     private GameObject activeTrail;
     public bool canAttack = true;
+    public AudioManager audioManager;
+    public GameObject weaponSprite;
+
+    public void Start()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        weaponSprite = GameObject.Find("WeaponSprite");
+    }
 
     public void Update()
     {
@@ -31,9 +39,19 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+        if (weapon.name == "Melee")
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && canAttack)
+            {
+                Attack();
+                StartCoroutine(SwordAttack());
+                audioManager.PlaySFX(weapon.attackSound);
+            }
+        }
         else if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
             Attack();
+            audioManager.PlaySFX(weapon.attackSound);
         }
     }
 
@@ -49,4 +67,11 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(weapon.attackCd);
         canAttack = true;
     }
+    public IEnumerator SwordAttack()
+    {
+        weaponSprite.SetActive(false);
+        yield return new WaitForSeconds(0.6f);
+        weaponSprite.SetActive(true);
+    }
+
 }

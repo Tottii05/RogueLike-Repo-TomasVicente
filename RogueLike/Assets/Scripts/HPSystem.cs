@@ -11,8 +11,15 @@ public class HPSystem : MonoBehaviour, IDamageable
         Hp -= damage;
         if (Hp <= 0)
         {
+            if (GetComponent<BoxCollider2D>() != null)
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
             OnEnemyKilled?.Invoke();
             GetComponent<IDroppeable>().Drop();
+
+            this.enabled = false;
+
             Destroy(gameObject);
         }
     }

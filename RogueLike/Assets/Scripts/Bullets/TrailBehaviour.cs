@@ -30,7 +30,6 @@ public class TrailBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trail hit " + other.name);
         if (other.TryGetComponent<IDamageable>(out var damageable))
         {
             damageable.TakeDamage(weapon.damage);

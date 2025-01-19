@@ -18,3 +18,4 @@ MonoBehaviour:
   damage: 100
   attackCd: 1
   price: 20
+  attackSound: {fileID: 8300000, guid: 5ffcc829252d6f24b9fa9ae5cb348256, type: 3}
