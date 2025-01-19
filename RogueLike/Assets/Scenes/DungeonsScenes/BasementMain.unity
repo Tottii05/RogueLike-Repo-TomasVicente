@@ -1240,6 +1240,7 @@ MonoBehaviour:
   animator: {fileID: 1581093758}
   spriteRenderer: {fileID: 1581093780}
   weaponHolder: {fileID: 1396292273}
+  rb: {fileID: 1581093782}
 --- !u!114 &1581093776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,6 +1257,11 @@ MonoBehaviour:
 --- !u!212 &1581093780 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1732481962782063486, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
+  m_PrefabInstance: {fileID: 435545425512027350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1581093782 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1861827744799698103, guid: c25d35c5d40506e4e8c8ca09eefc93a4, type: 3}
   m_PrefabInstance: {fileID: 435545425512027350}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813967882

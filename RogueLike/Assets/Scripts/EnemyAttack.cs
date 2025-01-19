@@ -12,11 +12,13 @@ public class EnemyAttack : MonoBehaviour
     public int attackRadius = 7;
     private GameObject player;
     private bool isShooting = false;
+    public Animator animator;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         stack = new Stack<GameObject>();
+        animator = GetComponent<Animator>();
 
         for (int i = 0; i < 3; i++)
         {
@@ -29,6 +31,11 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
+        if (player != null)
+        {
+            FlipSpriteTowardsPlayer();
+        }
+
         if (canShoot && stack.Count > 0 && !isShooting && IsPlayerAlive())
         {
             StartCoroutine(Shoot());
@@ -37,6 +44,7 @@ public class EnemyAttack : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        animator.SetTrigger("Attack");
         isShooting = true;
         GameObject bullet = Pop();
 
@@ -76,5 +84,28 @@ public class EnemyAttack : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void FlipSprite()
+    {
+        Vector3 scale = shooterPrefab.transform.localScale;
+        scale.x *= -1;
+        shooterPrefab.transform.localScale = scale;
+    }
+
+    private void FlipSpriteTowardsPlayer()
+    {
+        if (player != null)
+        {
+            Vector3 direction = player.transform.position - shooterPrefab.transform.position;
+            if (direction.x > 0 && shooterPrefab.transform.localScale.x < 0)
+            {
+                FlipSprite();
+            }
+            else if (direction.x < 0 && shooterPrefab.transform.localScale.x > 0)
+            {
+                FlipSprite();
+            }
+        }
     }
 }
